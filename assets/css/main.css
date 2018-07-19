@@ -1,0 +1,776 @@
+/*
+	Colores base:
+		Gris         : rgb(148, 148, 148);
+		Azul         : rgb(104, 143, 251);
+		Verde        : rgb(65, 191, 43);
+		Verde Obscuro: rgb(31, 90, 20);
+		Rojo         : rgb(246, 12, 12);
+*/
+
+@font-face {
+	font-family: Nimbus;
+	src        : url('../fonts/nimbus/NimbusSanL-Reg.otf');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: Nimbus;
+	src        : url('../fonts/nimbus/NimbusSanL-Bol.otf');
+	font-weight: 200;
+}
+
+/*
+	Clases Generales
+*/
+
+* {
+	font-family: Nimbus, sans-serif;
+	font-weight: 100;
+	font-size  : 1em;
+	margin     : 0px;
+	padding    : 0px;
+	box-sizing : border-box;
+	outline    : none;
+}
+
+body {
+	background-color: rgb(255, 255, 255);
+	width           : 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display       : block;
+	pointer-events: none;
+}
+
+	/*
+		Diseño
+	*/
+
+	body > nav {
+		width           : 100%;
+		height          : 100px;
+		background-color: rgb(255, 255, 255);
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		box-shadow      : 0 0 1px rgba(0, 0, 0, 0.3);
+		position        : fixed;
+		top             : 0;
+		left            : 0;
+		z-index         : 10;
+	}
+
+		body > nav > section {
+			width          : 80%;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > nav > section > a {
+				display: block;
+				height : 50px;
+			}
+
+				body > nav > section > a > img {
+					height: 100%;
+				}
+
+			body > nav > section > ul {
+				list-style: none;
+			}
+
+				body > nav > section > ul > li {
+					display     : inline-block;
+					margin-right: 16px;
+				}
+
+				body > nav > section > ul > li:last-of-type {
+					margin-right: 0px;
+				}
+
+					body > nav > section > ul > li > a {
+						display        : block;
+						text-decoration: none;
+						color          : rgb(148, 148, 148);
+						transition     : all 0.3s ease-out;
+					}
+
+					body > nav > section > ul > li > a:hover {
+						color: rgb(104, 143, 251);
+					}
+
+	body > header {
+		width                : 100%;
+		height               : 100vh;
+		background-image     : url('../images/cabecera/bg.jpg');
+		background-size      : cover;
+		background-position  : center;
+		background-attachment: fixed;
+		display              : flex;
+		align-items          : center;
+		justify-content      : center;
+	}
+
+		body > header > section {
+			width: 80%;
+		}
+
+			body > header > section > h1 {
+				font-size    : 2.5em;
+				font-weight  : 200;
+				white-space  : pre-line;
+				color        : rgb(255, 255, 255);
+				line-height  : 1em;
+				margin-bottom: 32px;
+				padding-top  : 100px;
+			}
+
+			body > header > section > sub {
+				display      : block;
+				font-size    : 1.5em;
+				white-space  : pre-line;
+				color        : rgb(255, 255, 255);
+				line-height  : 1em;
+				margin-bottom: 32px;
+			}
+
+			body > header > section > a {
+				display      : inline-block;
+				padding      : 12px 18px;
+				border       : 1px solid rgb(255, 255, 255);
+				color        : rgb(255, 255, 255);
+				border-radius: 6px;
+				transition   : all 0.3s ease-out;
+			}
+
+			body > header > section > a:hover {
+				background-color: rgba(0, 0, 0, 0.75);
+			}
+
+	body > #quienes-somos {
+		width  : 100%;
+		padding: 80px 0px;
+	}
+
+		body > #quienes-somos > section {
+			width   : 80%;
+			margin  : auto;
+			position: relative;
+		}
+
+			body > #quienes-somos > section > h1 {
+				font-size    : 2em;
+				font-weight  : 200;
+				line-height  : 1em;
+				white-space  : pre-line;
+				margin-bottom: 24px;
+				padding-top  : 100px;
+				position     : relative;
+			}
+
+			body > #quienes-somos > section > h1:before {
+				content         : '';
+				height          : 80px;
+				width           : 5px;
+				background-color: rgb(104, 143, 251);
+				position        : absolute;
+				top             : 0;
+				left            : 0;
+
+			}
+
+			body > #quienes-somos > section > p {
+				white-space  : pre-line;
+				margin-bottom: 24px;
+			}
+
+			body > #quienes-somos > section > p:last-of-type {
+				margin-bottom: 0px;
+			}
+
+			body > #quienes-somos > section > img {
+				width   : 45%;
+				position: absolute;
+				top     : -150px;
+				right   : 0;
+			}
+
+			body > #quienes-somos > section > a {
+				display         : inline-block;
+				padding         : 12px 18px;
+				color           : rgb(255, 255, 255);
+				background-color: rgb(65, 191, 43);
+				border-radius   : 6px;
+				transition      : all 0.3s ease-out;
+				margin-top      : 24px;
+			}
+
+			body > #quienes-somos > section > a:hover {
+				background-color: rgb(31, 90, 20);
+			}
+
+	body > #productos {
+		width                : 100%;
+		padding              : 80px 0px;
+		background-color     : rgb(255, 255, 255);
+		background-image     : url('../images/productos/bg.jpg');
+		background-attachment: fixed;
+		background-repeat    : no-repeat;
+		background-size      : cover;
+		position             : relative;
+	}
+
+		body > #productos > section {
+			width     : 80%;
+			margin    : auto;
+			margin-top: 80px;
+			position  : relative;
+		}
+
+			body > #productos > section > h1 {
+				color        : rgb(255, 255, 255);
+				font-size    : 2em;
+				font-weight  : 200;
+				line-height  : 1em;
+				white-space  : pre-line;
+				margin-bottom: 24px;
+			}
+
+			body > #productos > section > ul {
+				color: rgb(255, 255, 255);
+			}
+
+				body > #productos > section > ul > li {
+					margin-left  : 40px;
+					margin-bottom: 8px;
+				}
+
+				body > #productos > section > ul > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+			body > #productos > section > img {
+				position: absolute;
+				width   : 60%;
+				top     : -350px;
+				right   : 0px;
+				z-index : 9;
+			}
+
+		body > #productos > img {
+			position: absolute;
+			width   : 100%;
+			top     : 0px;
+			right   : 0px;
+		}
+
+	body > #servicios {
+		width  : 100%;
+		padding: 80px 0px;
+	}
+
+		body > #servicios > section {
+			width          : 80%;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+		}
+
+			body > #servicios > section > section {
+				width   : 50%;
+				position: relative;
+			}
+
+				body > #servicios > section > section:first-of-type > h1 {
+					width           : 35%;
+					background-color: rgb(246, 12, 12);
+					color           : rgb(255, 255, 255);
+					font-weight     : 200;
+					font-size       : 2em;
+					line-height     : 1em;
+					text-align      : center;
+					text-transform  : uppercase;
+					white-space     : pre-line;
+					padding         : 8px 0px;
+					margin-left     : 25%;
+					margin-top      : 40px;
+					z-index         : 5;
+					position        : absolute;
+				}
+
+				body > #servicios > section > section:first-of-type > img {
+					width   : 35%;
+					position: absolute;
+					top: 0;
+				}
+
+				body > #servicios > section > section:last-of-type > section {
+					margin-bottom: 36px;
+					display      : flex;
+					align-items  : center;
+				}
+
+				body > #servicios > section > section:last-of-type > section:last-of-type {
+					margin-bottom: 0px;
+				}
+
+					body > #servicios > section > section:last-of-type > section > span {
+						font-size   : 5em;
+						color       : rgb(246, 12, 12);
+						margin-right: 24px;
+					}
+
+						body > #servicios > section > section:last-of-type > section > section > h1 {
+							font-weight  : 200;
+							margin-bottom: 6px;
+						}
+
+	body > #descanso-1 {
+		width                : 100%;
+		padding              : 80px 0px;
+		background-image     : url('../images/extras/figura-1.jpg');
+		background-repeat    : no-repeat;
+		background-size      : cover;
+		background-attachment: fixed;
+	}
+
+		body > #descanso-1 > section {
+			width          : 80%;
+			margin         : auto;
+			display        : flex;
+			justify-content: flex-end;
+		}
+
+			body > #descanso-1 > section > h1 {
+				color      : rgb(255, 255, 255);
+				font-size  : 2.5em;
+				font-weight: 200;
+				line-height: 1em;
+				white-space: pre-line;
+				text-align : right;
+				padding-top: 120px;
+				position   : relative;
+			}
+
+			body > #descanso-1 > section > h1:before {
+				content         : '';
+				position        : absolute;
+				width           : 5px;
+				height          : 100px;
+				background-color: rgb(255, 255, 255);
+				top             : 0px;
+				right           : 0px;
+			}
+
+	body > main {
+		width  : 100%;
+		padding: 80px 0px;
+	}
+
+		body > main > section {
+			width : 80%;
+			margin: auto;
+		}
+
+			body > main > section > h1 {
+				font-size  : 2em;
+				font-weight: 200;
+				padding-top: 80px;
+				position   : relative;
+				line-height: 1em;
+			}
+
+			body > main > section > h1:before {
+				content         : '';
+				position        : absolute;
+				width           : 5px;
+				height          : 70px;
+				background-color: rgb(104, 143, 251);
+				top             : 0px;
+				left            : 0px;
+			}
+
+			body > main > section > sub {
+				font-size  : 0.85em;
+				white-space: pre-line;
+				line-height: 1em;
+			}
+
+			body > main > section > section {
+				margin-top     : 32px;
+				display        : flex;
+				flex-flow      : row wrap;
+				justify-content: space-between;
+			}
+
+				body > main > section > section > article {
+					width: 30%;
+				}
+
+					body > main > section > section > article > header {
+						width           : 100%;
+						height          : 250px;
+						background-color: rgba(0, 0, 0, 0.12);
+						margin-bottom   : 20px;
+						position        : relative;
+					}
+
+						body > main > section > section > article > header > time {
+							padding         : 4px 8px;
+							background-color: rgb(104, 143, 251);
+							color           : rgb(255, 255, 255);
+							font-size       : 0.85em;
+							font-weight     : 200;
+							position        : absolute;
+							bottom          : -8px;
+							right           : 8px;
+						}
+
+					body > main > section > section > article > h1 {
+						font-size     : 1.25em;
+						font-weight   : 200;
+						text-transform: uppercase;
+						margin-bottom : 12px;
+					}
+
+					body > main > section > section > article > a {
+						display         : inline-block;
+						margin-top      : 12px;
+						padding         : 8px 16px;
+						color           : rgb(255, 255, 255);
+						background-color: rgb(65, 191, 43);
+						border-radius   : 6px;
+						transition      : all 0.3s ease-out;
+					}
+
+					body > main > section > section > article > a:hover {
+						background-color: rgb(31, 90, 20);
+					}
+
+	body > #descanso-2 {
+		width           : 100%;
+		padding         : 80px 0px;
+		background-color: rgb(148, 148, 148);
+		color           : rgb(255, 255, 255);
+	}
+
+		body > #descanso-2 > section {
+			width          : 80%;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > #descanso-2 > section > section:first-of-type {
+				width      : 70%;
+				text-align : center;
+				font-size  : 1.5em;
+				font-style : italic;
+				line-height: 1em;
+			}
+
+			body > #descanso-2 > section > section:last-of-type {
+				width          : 30%;
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+				flex-direction : column;
+			}
+
+				body > #descanso-2 > section > section:last-of-type > img {
+					width        : 160px;
+					border-radius: 50%;
+					margin-bottom: 8px;
+				}
+
+				body > #descanso-2 > section > section:last-of-type > h1 {
+					font-size: 1.1em;
+				}
+
+				body > #descanso-2 > section > section:last-of-type > sub {
+					font-size: 0.75em;
+				}
+
+	body > #faq {
+		width  : 100%;
+		padding: 80px 0px;
+	}
+
+		body > #faq > section {
+			width          : 80%;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+		}
+
+			body > #faq > section > h1 {
+				width        : 100%;
+				font-size    : 2em;
+				font-weight  : 200;
+				padding-top  : 90px;
+				margin-bottom: 32px;
+				position     : relative;
+			}
+
+			body > #faq > section > h1:before {
+				content         : '';
+				width           : 5px;
+				height          : 80px;
+				background-color: rgb(104, 143, 251);
+				position        : absolute;
+				top             : 0;
+				left            : 0;
+			}
+
+			body > #faq > section > section {
+				width: 49%;
+			}
+
+				body > #faq > section > section > h1,
+				body > #faq > section > section > h2,
+				body > #faq > section > section > h3,
+				body > #faq > section > section > h4 {
+					font-weight  : 200;
+					margin-bottom: 12px;
+				}
+
+				body > #faq > section > section > p {
+					margin-bottom: 24px;
+				}
+
+				body > #faq > section > section > p:last-of-type {
+					margin-bottom: 0px;
+				}
+
+	body > #contacto {
+		width                : 100%;
+		padding              : 80px 0px;
+		background-image     : url('../images/productos/bg.jpg');
+		background-size      : cover;
+		background-repeat    : no-repeat;
+		background-attachment: fixed;
+		position             : relative;
+	}
+
+		body > #contacto > section {
+			width          : 80%;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > #contacto > section > section {
+				width: 50%;
+			}
+
+			body > #contacto > section > section:first-of-type {
+				color: rgb(255, 255, 255);
+			}
+
+				body > #contacto > section > section:first-of-type > h1 {
+					width      : 100%;
+					font-size  : 2em;
+					font-weight: 200;
+					padding-top: 90px;
+					position   : relative;
+					line-height: 1em;
+				}
+
+				body > #contacto > section > section:first-of-type > h1:before {
+					content         : '';
+					width           : 5px;
+					height          : 80px;
+					background-color: rgb(255, 255, 255);
+					position        : absolute;
+					top             : 0;
+					left            : 0;
+				}
+
+				body > #contacto > section > section:first-of-type > sub {
+					font-size: 0.85em;
+				}
+
+				body > #contacto > section > section:first-of-type > ul {
+					list-style: none;
+					margin-top: 32px;
+				}
+
+					body > #contacto > section > section:first-of-type > ul > li {
+						margin-bottom: 8px;
+					}
+
+					body > #contacto > section > section:first-of-type > ul > li:last-of-type {
+						margin-bottom: 0px;
+					}
+
+						body > #contacto > section > section:first-of-type > ul > li > a {
+							display    : inline-block;
+							font-weight: 200;
+							color      : rgb(255, 255, 255);
+							transition : all 0.3s ease-out;
+						}
+
+						body > #contacto > section > section:first-of-type > ul > li > a:hover {
+							color: rgb(104, 143, 251);
+						}
+
+			body > #contacto > section > section:last-of-type {
+				position  : relative;
+				z-index   : 8;
+				margin-top: -100px;
+			}
+
+				body > #contacto > section > section:last-of-type > map {
+					display      : block;
+					width        : 100%;
+					height       : 300px;
+					margin-bottom: 32px;
+				}
+
+				body > #contacto > section > section:last-of-type > form {
+					width: 100%;
+				}
+
+					body > #contacto > section > section:last-of-type > form > input {
+						width           : 100%;
+						background-color: transparent;
+						border          : none;
+						border-bottom   : 1px solid rgb(255, 255, 255);
+						padding         : 6px 0px;
+						color           : rgb(255, 255, 255);
+						margin-bottom   : 12px;
+					}
+
+					body > #contacto > section > section:last-of-type > form > input::placeholder {
+						color: rgb(255, 255, 255);
+					}
+
+					body > #contacto > section > section:last-of-type > form > textarea {
+						width           : 100%;
+						background-color: transparent;
+						border          : none;
+						border-bottom   : 1px solid rgb(255, 255, 255);
+						padding         : 6px 0px;
+						color           : rgb(255, 255, 255);
+						margin-bottom   : 12px;
+					}
+
+					body > #contacto > section > section:last-of-type > form > textarea::placeholder {
+						color: rgb(255, 255, 255);
+					}
+
+					body > #contacto > section > section:last-of-type > form > button {
+						width           : 100%;
+						color           : rgb(255, 255, 255);
+						background-color: rgb(65, 191, 43);
+						border-radius   : 6px;
+						padding-top     : 6px;
+						padding-bottom  : 6px;
+						border          : none;
+						cursor          : pointer;
+						transition      : all 0.3s ease-out;
+					}
+
+					body > #contacto > section > section:last-of-type > form > button:hover {
+						background-color: rgb(31, 90, 20);
+					}
+
+		body > #contacto > img {
+			width   : 100%;
+			position: absolute;
+			top     : 0px;
+			right   : 0px;
+		}
+
+	body > footer {
+		width           : 100%;
+		background-color: rgb(70, 70, 70);
+	}
+
+		body > footer > section {
+			width          : 80%;
+			padding        : 80px 0px;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > footer > section > section {
+				width          : 25%;
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+			}
+
+				body > footer > section > section > ul {
+					list-style: none;
+				}
+
+				body > footer > section > section:nth-of-type(1) > img {
+					width: 50%;
+				}
+
+				body > footer > section > section:nth-of-type(n+2):nth-of-type(-n+3) > ul {
+					padding-left  : 18px;
+					padding-top   : 6px;
+					padding-bottom: 6px;
+					border-left   : 1px solid rgba(0, 0, 0, 0.33);
+				}
+
+					body > footer > section > section:nth-of-type(n+2):nth-of-type(-n+3) > ul > li {
+						color        : rgba(0, 0, 0, 0.75);
+						margin-bottom: 8px;
+					}
+
+					body > footer > section > section:nth-of-type(n+2):nth-of-type(-n+3) > ul > li:last-pf-type {
+						margin-bottom: 0px;
+					}
+
+						body > footer > section > section:nth-of-type(n+2):nth-of-type(-n+3) > ul > li > a {
+							display    : inline-block;
+							color      : rgba(0, 0, 0, 0.75);
+							font-weight: 200;
+						}
+
+				body > footer > section > section:nth-of-type(4) > ul {
+					text-align: center;
+				}
+
+					body > footer > section > section:nth-of-type(4) > ul > li {
+						display: inline-block;
+						font-size: 3em;
+					}
+
+					body > footer > section > section:nth-of-type(4) > ul > li:first-of-type {
+						margin-right: 24px;
+					}
+
+						body > footer > section > section:nth-of-type(4) > ul > li > a {
+							display: block;
+							color  : rgb(255, 255, 255);
+						}
+
+		body > footer > footer {
+			background-color: rgb(58, 58, 58);
+			text-align      : center;
+			padding         : 24px 0px;
+		}
+
+			body > footer > footer > a {
+				display: inline-block;
+			}
