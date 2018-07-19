@@ -455,14 +455,14 @@ img {
 						background-color: rgb(31, 90, 20);
 					}
 
-	body > #descanso-2 {
+	body > #testimonios {
 		width           : 100%;
 		padding         : 80px 0px;
 		background-color: rgb(148, 148, 148);
 		color           : rgb(255, 255, 255);
 	}
 
-		body > #descanso-2 > section {
+		body > #testimonios > section {
 			width          : 80%;
 			margin         : auto;
 			display        : flex;
@@ -471,7 +471,7 @@ img {
 			align-items    : center;
 		}
 
-			body > #descanso-2 > section > section:first-of-type {
+			body > #testimonios > section > section:first-of-type {
 				width      : 70%;
 				text-align : center;
 				font-size  : 1.5em;
@@ -479,7 +479,7 @@ img {
 				line-height: 1em;
 			}
 
-			body > #descanso-2 > section > section:last-of-type {
+			body > #testimonios > section > section:last-of-type {
 				width          : 30%;
 				display        : flex;
 				align-items    : center;
@@ -487,17 +487,17 @@ img {
 				flex-direction : column;
 			}
 
-				body > #descanso-2 > section > section:last-of-type > img {
+				body > #testimonios > section > section:last-of-type > img {
 					width        : 160px;
 					border-radius: 50%;
 					margin-bottom: 8px;
 				}
 
-				body > #descanso-2 > section > section:last-of-type > h1 {
+				body > #testimonios > section > section:last-of-type > h1 {
 					font-size: 1.1em;
 				}
 
-				body > #descanso-2 > section > section:last-of-type > sub {
+				body > #testimonios > section > section:last-of-type > sub {
 					font-size: 0.75em;
 				}
 
