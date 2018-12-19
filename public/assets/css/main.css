@@ -1,0 +1,1860 @@
+/*
+	Colores base:
+		Gris         : rgb(148, 148, 148);
+		Azul         : rgb(104, 143, 251);
+		Verde        : rgb(65, 191, 43);
+		Verde Obscuro: rgb(31, 90, 20);
+		Rojo         : rgb(246, 12, 12);
+*/
+
+@font-face {
+	font-family: Nimbus;
+	src        : url('../fonts/nimbus/NimbusSanL-Reg.otf');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: Nimbus;
+	src        : url('../fonts/nimbus/NimbusSanL-Bol.otf');
+	font-weight: 200;
+}
+
+/*
+	Clases Generales
+*/
+
+* {
+	font-family: Nimbus, sans-serif;
+	font-weight: 100;
+	font-size  : 1em;
+	margin     : 0px;
+	padding    : 0px;
+	box-sizing : border-box;
+	outline    : none;
+}
+
+body {
+	background-color: rgb(255, 255, 255);
+	width           : 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display       : block;
+	pointer-events: none;
+}
+
+	/*
+		Diseño
+	*/
+
+	body > nav {
+		width           : 100%;
+		height          : 100px;
+		background-color: rgb(255, 255, 255);
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		box-shadow      : 0 0 1px rgba(0, 0, 0, 0.3);
+		position        : fixed;
+		top             : 0;
+		left            : 0;
+		z-index         : 10;
+		transition      : all 0.3s ease-out;
+	}
+
+	.active-nav {
+		margin-top: 0px;
+	}
+
+		body > nav > div {
+			width          : 80%;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > nav > div > a {
+				display: block;
+				height : 50px;
+			}
+
+				body > nav > div > a > img {
+					height: 100%;
+				}
+
+			body > nav > div > ul {
+				list-style: none;
+			}
+
+				body > nav > div > ul > li {
+					display     : inline-block;
+					margin-right: 16px;
+				}
+
+				body > nav > div > ul > li:last-of-type {
+					margin-right: 0px;
+				}
+
+					body > nav > div > ul > li > a {
+						display        : block;
+						text-decoration: none;
+						color          : rgb(148, 148, 148);
+						transition     : all 0.3s ease-out;
+					}
+
+					body > nav > div > ul > li > a:hover {
+						color: rgb(104, 143, 251);
+					}
+
+	body > header {
+		width          : 100%;
+		height         : 100vh;
+		display        : flex;
+		align-items    : center;
+		justify-content: center;
+	}
+
+		body > header > div {
+			width: 80%;
+		}
+
+			body > header > div > h1 {
+				font-size    : 3.5em;
+				font-weight  : 200;
+				white-space  : pre-line;
+				color        : rgb(255, 255, 255);
+				line-height  : 1em;
+				margin-bottom: 40px;
+				padding-top  : 100px;
+			}
+
+			body > header > div > sub {
+				display      : block;
+				font-size    : 2em;
+				white-space  : pre-line;
+				color        : rgb(255, 255, 255);
+				line-height  : 1em;
+				margin-bottom: 40px;
+			}
+
+			body > header > div > a {
+				display      : inline-block;
+				padding      : 12px 18px;
+				border       : 1px solid rgb(255, 255, 255);
+				color        : rgb(255, 255, 255);
+				border-radius: 6px;
+				transition   : all 0.3s ease-out;
+			}
+
+			body > header > div > a:hover {
+				background-color: rgba(0, 0, 0, 0.75);
+			}
+
+#nav {
+	width           : 100%;
+	height          : 75px;
+	position        : fixed;
+	top             : 0px;
+	left            : 0px;
+	background-color: rgba(255, 255, 255, 0.75);
+	display         : none;
+	align-items     : center;
+	justify-content : center;
+	z-index         : 100;
+}
+
+	#nav > div {
+		width          : 85%;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#nav > div > a {
+			display: inline-block;
+			height : 35px;
+		}
+
+			#nav > div > a > img {
+				height: 100%;
+			}
+
+		#nav > div > button {
+			display         : block;
+			background-color: rgb(104, 143, 251);
+			border          : none;
+			width           : 40px;
+			height          : 40px;
+			padding         : 8px;
+			transition      : all 0.3s ease-out;
+		}
+
+			#nav > div > button > span {
+				display         : block;
+				width           : 100%;
+				height          : 1px;
+				background-color: white;
+				margin-bottom   : 6px;
+				transition      : all 0.3s ease-out;
+			}
+
+			#nav > div > button > span:last-of-type {
+				margin-bottom: 0px;
+			}
+
+	.active-btn {
+		display        : flex !important;
+		align-items    : center;
+		justify-content: center;
+	}
+
+		.active-btn > span:nth-of-type(1) {
+			transform: rotate(45deg);
+			position : absolute;
+		}
+
+		.active-btn > span:nth-of-type(2) {
+			opacity: 0;
+		}
+
+		.active-btn > span:nth-of-type(3) {
+			transform: rotate(-45deg);
+			position : absolute;
+		}
+
+#quienes-somos {
+	width  : 100%;
+	padding: 80px 0px;
+}
+
+	#quienes-somos > div {
+		width          : 80%;
+		margin         : auto;
+		position       : relative;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#quienes-somos > div > div {
+			width: 49%;
+		}
+
+			#quienes-somos > div > div > h1 {
+				font-size    : 2em;
+				font-weight  : 200;
+				line-height  : 1em;
+				white-space  : pre-line;
+				padding-top  : 100px;
+				position     : relative;
+			}
+
+			#quienes-somos > div > div > h1:before {
+				content         : '';
+				height          : 90px;
+				width           : 5px;
+				background-color: rgb(104, 143, 251);
+				position        : absolute;
+				top             : 0;
+				left            : 0;
+			}
+
+			#quienes-somos > div > div > p {
+				text-align: justify;
+				margin-top: 40px;
+			}
+
+			#quienes-somos > div > div > a {
+				display         : inline-block;
+				padding         : 12px 18px;
+				color           : rgb(255, 255, 255);
+				background-color: rgb(65, 191, 43);
+				border-radius   : 6px;
+				transition      : all 0.3s ease-out;
+				margin-top      : 40px;
+			}
+
+			#quienes-somos > div > div > a:hover {
+				background-color: rgb(31, 90, 20);
+			}
+
+		#quienes-somos > div > img {
+			width   : 49%;
+			position: absolute;
+			top     : -120px;
+			right   : 0;
+		}
+
+#productos {
+	width   : 100%;
+	padding : 80px 0px;
+	position: relative;
+}
+
+	#productos > div {
+		width   : 80%;
+		margin  : auto;
+		position: relative;
+	}
+
+		#productos > div > h1 {
+			color        : rgb(255, 255, 255);
+			font-size    : 2em;
+			font-weight  : 200;
+			line-height  : 1em;
+			white-space  : pre-line;
+			margin-bottom: 24px;
+		}
+
+		#productos > div > ul {
+			width          : 50%;
+			color          : rgb(255, 255, 255);
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			list-style     : none;
+		}
+
+			#productos > div > ul > li {
+				width        : 49%;
+				margin-bottom: 12px;
+			}
+
+			#productos > div > ul > li:last-of-type {
+				margin-bottom: 0px;
+			}
+
+				#productos > div > ul > li > a {
+					display         : block;
+					text-align      : center;
+					padding         : 8px;
+					background-color: rgb(65, 191, 43);
+					color           : rgb(255, 255, 255);
+					border-radius   : 6px;
+					transition      : all 0.3s ease-out;
+				}
+
+				#productos > div > ul > li > a:hover {
+					background-color: rgb(31, 90, 20);
+				}
+
+		#productos > div > img {
+			position: absolute;
+			width   : 50%;
+			bottom  : -60px;
+			right   : 0px;
+			z-index : 9;
+		}
+
+	#productos > img {
+		position: absolute;
+		width   : 100%;
+		top     : -1px;
+		right   : 0px;
+	}
+
+#servicios {
+	width  : 100%;
+	padding: 80px 0px;
+}
+
+	#servicios > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#servicios > div > div {
+			width   : 50%;
+			position: relative;
+		}
+
+			#servicios > div > div:first-of-type > h1 {
+				width           : 35%;
+				background-color: rgb(246, 12, 12);
+				color           : rgb(255, 255, 255);
+				font-weight     : 200;
+				font-size       : 2em;
+				line-height     : 1em;
+				text-align      : center;
+				text-transform  : uppercase;
+				white-space     : pre-line;
+				padding         : 8px 0px;
+				margin-left     : 25%;
+				margin-top      : 40px;
+				z-index         : 5;
+				position        : absolute;
+			}
+
+			#servicios > div > div:first-of-type > img {
+				width   : 35%;
+				position: absolute;
+				top: 0;
+			}
+
+			#servicios > div > div:last-of-type > div {
+				margin-bottom: 36px;
+				display      : flex;
+				align-items  : center;
+			}
+
+			#servicios > div > div:last-of-type > div:last-of-type {
+				margin-bottom: 0px;
+			}
+
+				#servicios > div > div:last-of-type > div > img {
+					width       : 100px;
+					margin-right: 24px;
+				}
+
+					#servicios > div > div:last-of-type > div > div > h4 {
+						font-weight  : 200;
+						margin-bottom: 6px;
+					}
+
+					#servicios > div > div:last-of-type > div > div > p {
+						text-align: justify;
+					}
+
+#descanso-1 {
+	width  : 100%;
+	padding: 80px 0px;
+}
+
+	#descanso-1 > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		justify-content: flex-end;
+	}
+
+		#descanso-1 > div > h1 {
+			color      : rgb(255, 255, 255);
+			font-size  : 2.5em;
+			font-weight: 200;
+			line-height: 1em;
+			white-space: pre-line;
+			text-align : right;
+			padding-top: 120px;
+			position   : relative;
+		}
+
+		#descanso-1 > div > h1:before {
+			content         : '';
+			position        : absolute;
+			width           : 5px;
+			height          : 100px;
+			background-color: rgb(255, 255, 255);
+			top             : 0px;
+			right           : 0px;
+		}
+
+main {
+	width  : 100%;
+	padding: 80px 0px;
+}
+
+	main > div {
+		width : 80%;
+		margin: auto;
+	}
+
+		main > div > h1 {
+			font-size  : 2em;
+			font-weight: 200;
+			padding-top: 80px;
+			position   : relative;
+			line-height: 1em;
+		}
+
+		main > div > h1:before {
+			content         : '';
+			position        : absolute;
+			width           : 5px;
+			height          : 70px;
+			background-color: rgb(104, 143, 251);
+			top             : 0px;
+			left            : 0px;
+		}
+
+		main > div > sub {
+			font-size  : 0.85em;
+			white-space: pre-line;
+			line-height: 1em;
+		}
+
+		main > div > div {
+			margin-top     : 32px;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+		}
+
+			main > div > div > article {
+				width: 32%;
+			}
+
+				main > div > div > article > header {
+					width              : 100%;
+					background-color   : rgba(0, 0, 0, 0.12);
+					margin-bottom      : 20px;
+					position           : relative;
+					background-size    : cover;
+					background-position: center;
+				}
+
+					main > div > div > article > header > img {
+						width: 100%;
+					}
+
+					main > div > div > article > header > time {
+						padding         : 8px 16px;
+						background-color: rgb(104, 143, 251);
+						color           : rgb(255, 255, 255);
+						font-size       : 0.85em;
+						font-weight     : 200;
+						position        : absolute;
+						bottom          : 0px;
+						right           : 0px;
+					}
+
+				main > div > div > article > h1 {
+					font-size     : 1.25em;
+					font-weight   : 200;
+					text-transform: uppercase;
+					margin-bottom : 20px;
+				}
+
+				main > div > div > article > a {
+					display         : inline-block;
+					margin-top      : 20px;
+					padding         : 8px 16px;
+					color           : rgb(255, 255, 255);
+					background-color: rgb(65, 191, 43);
+					border-radius   : 6px;
+					transition      : all 0.3s ease-out;
+				}
+
+				main > div > div > article > a:hover {
+					background-color: rgb(31, 90, 20);
+				}
+
+				main > div > div > article > p {
+					text-align: justify;
+				}
+
+#articulo {
+	width        : 100%;
+	margin-top   : 140px;
+	margin-bottom: 40px;
+}
+
+	#articulo > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#articulo > div > article {
+			width     : 69%;
+			text-align: justify;
+		}
+
+			#articulo > div > article > header {
+				width          : 100%;
+				position       : relative;
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+			}
+
+				#articulo > div > article > header > img {
+					width: 100%;
+				}
+
+				#articulo > div > article > header > time {
+					position        : absolute;
+					bottom          : -12px;
+					background-color: rgb(103, 142, 250);
+					color           : rgb(255, 255, 255);
+					font-weight     : 200;
+					padding         : 12px;
+				}
+
+			#articulo > div > article > h1 {
+				font-size     : 2em;
+				font-weight   : 300;
+				text-transform: uppercase;
+				margin        : 28px 0px;
+				text-align    : center;
+			}
+
+			#articulo > div > article > ol {
+				padding-left: 24px;
+			}
+
+				#articulo > div > article > ol > li {
+					margin-bottom: 8px;
+				}
+
+				#articulo > div > article > ol > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+			#articulo > div > article > p {
+				margin-bottom: 24px;
+			}
+
+			#articulo > div > article > p:last-of-type {
+				margin-bottom: 0px;
+			}
+
+		#articulo > div > aside {
+			width: 29%;
+		}
+
+			#articulo > div > aside > div {
+				width              : 100%;
+				margin-bottom      : 28px;
+				background-size    : cover;
+				background-position: center;
+			}
+
+				#articulo > div > aside > div > a {
+					width           : 100%;
+					height          : 250px;
+					display         : flex;
+					align-items     : center;
+					justify-content : center;
+					flex-direction  : column;
+					padding         : 24px;
+					background-color: rgba(0, 0, 0, 0.75);
+					color           : rgb(255, 255, 255);
+					transition      : all 0.3s ease-out;
+				}
+
+				#articulo > div > aside > div > a:hover {
+					background-color: rgba(0, 0, 0, 0.95);
+				}
+
+					#articulo > div > aside > div > a > h2 {
+						text-align   : center;
+						font-size    : 1.25em;
+						font-weight  : 100;
+						margin-bottom: 12px;
+					}
+
+					#articulo > div > aside > div > a > time {
+						text-align : center;
+						font-size  : 0.75em;
+						font-weight: 100;
+						padding    : 4px 8px;
+						border     : 1px solid rgb(255, 255, 255);
+					}
+
+#testimonios {
+	width           : 100%;
+	padding         : 80px 0px;
+	background-color: rgb(0, 45, 94);
+	color           : rgb(255, 255, 255);
+}
+
+	#testimonios > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		justify-content: center;
+		align-items    : center;
+		flex-direction : column;
+	}
+
+		#testimonios > div > div {
+			width      : auto;
+			text-align : center;
+			font-size  : 1.5em;
+			font-style : italic;
+			line-height: 1em;
+		}
+
+			#testimonios > div > div > p {
+				white-space: pre-line;
+			}
+
+		#testimonios > div > figure {
+			width          : auto;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+			flex-direction : column;
+			margin-bottom  : 20px;
+			position       : relative;
+		}
+
+			#testimonios > div > figure > img {
+				width        : 160px;
+				border-radius: 50%;
+			}
+
+			#testimonios > div > figure > figcaption {
+				background-color: rgba(0, 0, 0, 0.75);
+				padding         : 8px 16px;
+				position        : relative;
+				top             : -16px;
+			}
+
+#faq {
+	width  : 100%;
+	padding: 120px 0px;
+}
+
+	#faq > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+	}
+
+		#faq > div > h1 {
+			width        : 100%;
+			font-size    : 2em;
+			font-weight  : 200;
+			padding-top  : 90px;
+			position     : relative;
+			margin-bottom: 40px;
+		}
+
+		#faq > div > h1:before {
+			content         : '';
+			width           : 5px;
+			height          : 80px;
+			background-color: rgb(104, 143, 251);
+			position        : absolute;
+			top             : 0;
+			left            : 0;
+		}
+
+		#faq > div > div {
+			width       : 100%;
+			column-count: 2;
+			column-gap  : 40px;
+		}
+
+			#faq > div > div > h1,
+			#faq > div > div > h2,
+			#faq > div > div > h3,
+			#faq > div > div > h4,
+			#faq > div > div > h5,
+			#faq > div > div > h6 {
+				font-size    : 1.25em;
+				font-weight  : 200;
+				margin-bottom: 8px;
+			}
+
+			#faq > div > div > p {
+				text-align   : justify;
+				margin-bottom: 40px; 
+			}
+
+			#faq > div > div > p:last-of-type {
+				margin-bottom: 0px;
+			}
+
+#contacto {
+	width   : 100%;
+	padding : 80px 0px;
+	position: relative;
+}
+
+	#contacto > div {
+		width          : 80%;
+		margin         : auto;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: space-between;
+		align-items    : center;
+	}
+
+		#contacto > div > div {
+			width: 50%;
+		}
+
+		#contacto > div > div:first-of-type {
+			color: rgb(255, 255, 255);
+		}
+
+			#contacto > div > div:first-of-type > h1 {
+				width      : 100%;
+				font-size  : 2em;
+				font-weight: 200;
+				padding-top: 90px;
+				position   : relative;
+				line-height: 1em;
+			}
+
+			#contacto > div > div:first-of-type > h1:before {
+				content         : '';
+				width           : 5px;
+				height          : 80px;
+				background-color: rgb(255, 255, 255);
+				position        : absolute;
+				top             : 0;
+				left            : 0;
+			}
+
+			#contacto > div > div:first-of-type > sub {
+				font-size: 0.85em;
+			}
+
+			#contacto > div > div:first-of-type > ul {
+				list-style: none;
+				margin-top: 32px;
+			}
+
+				#contacto > div > div:first-of-type > ul > li {
+					margin-bottom: 8px;
+				}
+
+				#contacto > div > div:first-of-type > ul > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+					#contacto > div > div:first-of-type > ul > li > a {
+						display    : inline-block;
+						font-weight: 200;
+						color      : rgb(255, 255, 255);
+						transition : all 0.3s ease-out;
+					}
+
+					#contacto > div > div:first-of-type > ul > li > a:hover {
+						color: rgb(104, 143, 251);
+					}
+
+		#contacto > div > div:last-of-type {
+			position: relative;
+			z-index : 8;
+		}
+
+			#contacto > div > div:last-of-type > map {
+				display      : block;
+				width        : 100%;
+				height       : 300px;
+				margin-bottom: 40px;
+			}
+
+			#contacto > div > div:last-of-type > form {
+				width: 100%;
+			}
+
+				#contacto > div > div:last-of-type > form > input {
+					width           : 100%;
+					background-color: transparent;
+					border          : none;
+					border-bottom   : 1px solid rgb(255, 255, 255);
+					padding         : 6px 0px;
+					color           : rgb(255, 255, 255);
+					margin-bottom   : 12px;
+				}
+
+				#contacto > div > div:last-of-type > form > input::placeholder {
+					color: rgb(255, 255, 255);
+				}
+
+				#contacto > div > div:last-of-type > form > textarea {
+					width           : 100%;
+					background-color: transparent;
+					border          : none;
+					border-bottom   : 1px solid rgb(255, 255, 255);
+					padding         : 6px 0px;
+					color           : rgb(255, 255, 255);
+					margin-bottom   : 12px;
+				}
+
+				#contacto > div > div:last-of-type > form > textarea::placeholder {
+					color: rgb(255, 255, 255);
+				}
+
+				#contacto > div > div:last-of-type > form > button {
+					width           : 100%;
+					color           : rgb(255, 255, 255);
+					background-color: rgb(65, 191, 43);
+					border-radius   : 6px;
+					padding-top     : 6px;
+					padding-bottom  : 6px;
+					border          : none;
+					cursor          : pointer;
+					transition      : all 0.3s ease-out;
+				}
+
+				#contacto > div > div:last-of-type > form > button:hover {
+					background-color: rgb(31, 90, 20);
+				}
+
+	#contacto > img {
+		width   : 100%;
+		position: absolute;
+		top     : 0px;
+		right   : 0px;
+	}
+
+#clases {
+	width     : 100%;
+	margin-top: 100px;
+}
+
+	#clases > header {
+		width          : 100%;
+		height         : 50vh;
+		display        : flex;
+		align-items    : center;
+		justify-content: center;
+		flex-direction : column;
+	}
+
+		#clases > header > h1 {
+			font-size    : 2em;
+			color        : rgb(255, 255, 255);
+			text-align   : center;
+			white-space  : pre-line;
+			font-weight  : 200;
+			line-height  : 1em;
+			margin-bottom: 40px;
+		}
+
+		#clases > header > sub {
+			color     : rgb(255, 255, 255);
+			text-align: center;
+		}
+
+	#clases > section {
+		width          : 80%;
+		display        : flex;
+		flex-flow      : row wrap;
+		justify-content: flex-end;
+		margin         : auto;
+		padding        : 80px 0px;
+	}
+
+		#clases > section > h2 {
+			width        : 100%;
+			margin-bottom: 40px;
+			font-weight  : 200;
+			white-space  : pre-line;
+			font-size    : 2em;
+			line-height  : 1em;
+			position     : relative;
+			padding-top  : 80px;
+		}
+
+		#clases > section > h2:before {
+			content         : '';
+			height          : 72px;
+			width           : 4px;
+			background-color: rgb(103, 142, 250);
+			position        : absolute;
+			left            : 0px;
+			top             : 0px;
+		}
+
+		#clases > section > div {
+			width        : 100%;
+			column-count : 2;
+			column-gap   : 32px;
+			text-align   : justify;
+			margin-bottom: 40px;
+		}
+
+			#clases > section > div > h1,
+			#clases > section > div > h2,
+			#clases > section > div > h3,
+			#clases > section > div > h4,
+			#clases > section > div > h5,
+			#clases > section > div > h6 {
+				font-weight  : 200;
+				margin-bottom: 12px;
+				font-size    : 1.25em;
+			}
+
+			#clases > section > div > p {
+				margin-bottom: 40px;
+			}
+
+			#clases > section > div > p:last-of-type {
+				margin-bottom: 0px;
+			}
+
+			#clases > section > div > ul {
+				padding-left : 16px;
+				margin-bottom: 40px;
+			}
+
+				#clases > section > div > ul > li {
+					margin-bottom: 6px;
+				}
+
+				#clases > section > div > ul > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+			#clases > section > div > ol {
+				padding-left : 16px;
+				margin-bottom: 40px;
+			}
+
+				#clases > section > div > ol > li {
+					margin-bottom: 6px;
+				}
+
+				#clases > section > div > ol > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+		#clases > section > a {
+			display         : inline-block;
+			background-color: rgb(65, 191, 43);
+			border-radius   : 6px;
+			padding         : 8px 24px;
+			color           : rgb(255, 255, 255);
+			transition      : all 0.3s ease-out;
+		}
+
+		#clases > section > a:hover {
+			background-color: rgb(31, 90, 20);
+		}
+
+	#clases > div {
+		width  : 100%;
+		padding: 80px 0px;
+	}
+
+		#clases > div > div {
+			width : 80%;
+			margin: auto;
+			color : rgb(255, 255, 255);
+		}
+
+			#clases > div > div > h3 {
+				font-weight  : 200;
+				font-size    : 2em;
+				color        : rgb(255, 255, 255);
+				margin-bottom: 40px;
+				position     : relative;
+			}
+
+			#clases > div > div > h3:before {
+				content         : '';
+				width           : 4px;
+				height          : 80px;
+				background-color: rgb(255, 255, 255);
+				position        : absolute;
+				left            : 0px;
+				top             : -80px;
+			}
+
+			#clases > div > div > div {
+				column-count: 3;
+				column-gap  : 40px;
+			}
+
+				#clases > div > div > div > h1,
+				#clases > div > div > div > h2,
+				#clases > div > div > div > h3,
+				#clases > div > div > div > h4,
+				#clases > div > div > div > h5,
+				#clases > div > div > div > h6 {
+					font-size    : 1.5em;
+					margin-bottom: 8px;
+				}
+
+				#clases > div > div > div > ul {
+					padding-left: 16px;
+					margin-bottom: 40px;
+				}
+
+				#clases > div > div > div > ol {
+					padding-left: 16px;
+					margin-bottom: 40px;
+				}
+
+				#clases > div > div > div > a {
+					display         : inline-block;
+					background-color: rgb(65, 191, 43);
+					border-radius   : 6px;
+					padding         : 8px 24px;
+					color           : rgb(255, 255, 255);
+					transition      : all 0.3s ease-out;
+				}
+
+				#clases > div > div > div > a:hover {
+					background-color: rgb(31, 90, 20);
+				}
+
+	body > footer {
+		width           : 100%;
+		background-color: rgb(220, 220, 220);
+	}
+
+		body > footer > div:first-of-type {
+			width          : 80%;
+			padding        : 80px 0px;
+			margin         : auto;
+			display        : flex;
+			flex-flow      : row wrap;
+			justify-content: space-between;
+			align-items    : center;
+		}
+
+			body > footer > div:first-of-type > div {
+				width          : 25%;
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+			}
+
+				body > footer > div:first-of-type > div > ul {
+					list-style: none;
+				}
+
+			body > footer > div:first-of-type > div:nth-of-type(1) {
+				width: 20%;
+			}
+
+				body > footer > div:first-of-type > div:nth-of-type(1) > img {
+					width: 100%;
+				}
+
+			body > footer > div:first-of-type > div:nth-of-type(2),
+			body > footer > div:first-of-type > div:nth-of-type(3) {
+				width: 20%;
+			}
+
+				body > footer > div:first-of-type > div:nth-of-type(n+2):nth-of-type(-n+3) > ul {
+					padding-left  : 18px;
+					padding-top   : 6px;
+					padding-bottom: 6px;
+					border-left   : 1px solid rgba(0, 0, 0, 0.33);
+				}
+
+					body > footer > div:first-of-type > div:nth-of-type(n+2):nth-of-type(-n+3) > ul > li {
+						color        : rgba(0, 0, 0, 0.75);
+						margin-bottom: 8px;
+					}
+
+					body > footer > div:first-of-type > div:nth-of-type(n+2):nth-of-type(-n+3) > ul > li:last-pf-type {
+						margin-bottom: 0px;
+					}
+
+						body > footer > div:first-of-type > div:nth-of-type(n+2):nth-of-type(-n+3) > ul > li > a {
+							display    : inline-block;
+							color      : rgba(0, 0, 0, 0.75);
+							font-weight: 200;
+							transition : all 0.3s ease-out;
+						}
+
+						body > footer > div:first-of-type > div:nth-of-type(n+2):nth-of-type(-n+3) > ul > li > a:hover {
+							color      : white;
+							text-shadow: 0 0 1px black;
+						}
+
+			body > footer > div:first-of-type > div:nth-of-type(4) {
+				width: auto;
+			}
+
+				body > footer > div:first-of-type > div:nth-of-type(4) > ul {
+					text-align: center;
+				}
+
+					body > footer > div:first-of-type > div:nth-of-type(4) > ul > li {
+						display: inline-block;
+						font-size: 3em;
+					}
+
+					body > footer > div:first-of-type > div:nth-of-type(4) > ul > li:first-of-type {
+						margin-right: 24px;
+					}
+
+						body > footer > div:first-of-type > div:nth-of-type(4) > ul > li > a {
+							display   : block;
+							color     : #17375e;
+							transition: all 0.3s ease-out;
+						}
+
+						body > footer > div:first-of-type > div:nth-of-type(4) > ul > li > a:hover {
+							color: #c00000;
+						}
+
+		body > footer > div:last-of-type {
+			background-color: rgb(58, 58, 58);
+			text-align      : center;
+			padding         : 24px 0px;
+			color           : white;
+		}
+
+			body > footer > div:last-of-type > a {
+				display   : inline-block;
+				font-size : 0.85em;
+				color     : rgb(255, 255, 255);
+				transition: all 0.3s ease-out;
+			}
+
+			body > footer > div:last-of-type > a:hover {
+				color: rgb(234, 0, 0);
+			}
+
+#errors {
+	width           : 100%;
+	height          : 100vh;
+	background-color: white;
+	display         : flex;
+	flex-flow       : row wrap;
+	justify-content : space-between;
+	position        : relative;
+}
+
+	#errors > div {
+		width              : 50%;
+		height             : 100%;
+		position           : relative;
+		display            : flex;
+		align-items        : center;
+		justify-content    : center;
+		flex-direction     : column;
+		background-size    : cover;
+		background-position: center;
+	}
+
+		#errors > div > h1 {
+			font-size     : 2.5em;
+			text-transform: uppercase;
+		}
+
+		#errors > div > sub {
+			font-size: 1.75em;
+		}
+
+@media all and (orientation: landscape) and (max-width: 1370px) {
+	body > button {
+		display: block;
+	}
+
+	body > nav {
+		width     : 100%;
+		height    : 100vh;
+		position  : fixed;
+		margin-top: -100vh;
+	}
+
+		body > nav > div {
+			width          : 100%;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+			flex-direction : column;
+		}
+
+			body > nav > div > a {
+				width        : 35%;
+				height       : auto;
+				margin-bottom: 40px;
+			}
+
+				body > nav > div > a > img {
+					width : 100%;
+					height: auto;
+				}
+
+			body > nav > div > ul {
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+				flex-direction : column;
+			}
+
+				body > nav > div > ul > li {
+					display        : block;
+					margin-right   : 0px;
+					width          : 100%;
+					text-align-last: center;
+					margin-bottom  : 12px;
+				}
+
+				body > nav > div > ul > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+	body > header > div {
+		width: 85%;
+	}
+
+		body > header > div > h1 {
+			padding-top: 0px;
+		}
+
+	#nav {
+		display: flex;
+	}
+
+	#quienes-somos > div {
+		width      : 85%;
+		align-items: center;
+	}
+
+		#quienes-somos > div > img {
+			position: absolute;
+			top     : auto;
+		}
+
+	#productos > div {
+		width: 85%;
+	}
+
+		#productos > div > ul > li > a {
+			font-size: 0.85em;
+		}
+
+	#servicios > div {
+		width: 85%;
+	}
+
+	#descanso-1 > div {
+		width: 85%;
+	}
+
+	main > div {
+		width: 85%;
+	}
+
+	#faq > div {
+		width: 85%;
+	}
+
+	#contacto > div {
+		width: 85%;
+	}
+
+	body > footer > div:first-of-type {
+		width: 85%;
+	}
+
+	#clases {
+		margin-top: 0px;
+	}
+
+		#clases > section {
+			width: 85%;
+		}
+
+		#clases > div > div {
+			width: 85%;
+		}
+
+	#articulo {
+		margin-top: 120px;
+	}
+
+		#articulo > div {
+			width: 85%;
+		}
+}
+
+@media all and (orientation: portrait) and (max-width: 1030px) {
+	body > button {
+		display: block;
+	}
+
+	body > nav {
+		width     : 100%;
+		height    : 100vh;
+		position  : fixed;
+		margin-top: -100vh;
+	}
+
+		body > nav > div {
+			width          : 100%;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+			flex-direction : column;
+		}
+
+			body > nav > div > a {
+				width        : 35%;
+				height       : auto;
+				margin-bottom: 40px;
+			}
+
+				body > nav > div > a > img {
+					width : 100%;
+					height: auto;
+				}
+
+			body > nav > div > ul {
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+				flex-direction : column;
+			}
+
+				body > nav > div > ul > li {
+					display        : block;
+					margin-right   : 0px;
+					width          : 100%;
+					text-align-last: center;
+					margin-bottom  : 12px;
+				}
+
+				body > nav > div > ul > li:last-of-type {
+					margin-bottom: 0px;
+				}
+
+	body > header > div {
+		width: 85%;
+	}
+
+		body > header > div > h1 {
+			padding-top: 0px;
+		}
+
+	#nav {
+		display: flex;
+	}
+
+	#quienes-somos > div {
+		width      : 85%;
+		align-items: center;
+	}
+
+		#quienes-somos > div > div {
+			width: 100%;
+		}
+
+		#quienes-somos > div > img {
+			display: none;
+		}
+
+	#productos > div {
+		width: 85%;
+	}
+
+		#productos > div > img {
+			display: none;
+		}
+
+		#productos > div > ul {
+			width: 100%;
+		}
+
+			#productos > div > ul > li > a {
+				font-size: 0.85em;
+			}
+
+	#servicios > div {
+		width: 85%;
+	}
+
+		#servicios > div > div {
+			width: 100%;
+		}
+
+			#servicios > div > div:first-of-type > h1 {
+				width        : 100%;
+				position     : static;
+				margin-top   : 0px;
+				margin-left  : 0px;
+				white-space  : normal;
+				margin-bottom: 40px;
+				text-transform: none;
+			}
+
+			#servicios > div > div:first-of-type > img {
+				display: none;
+			}
+
+	#descanso-1 > div {
+		width: 85%;
+	}
+
+	main > div {
+		width: 85%;
+	}
+
+		main > div > div {
+			display: block;
+		}
+
+			main > div > div > article {
+				width        : 100%;
+				margin-bottom: 40px;
+			}
+
+			main > div > div > article:last-of-type {
+				margin-bottom: 0px;
+			}
+
+	#faq > div {
+		width: 85%;
+	}
+
+	#contacto > div {
+		width  : 85%;
+		display: block;
+	}
+
+		#contacto > div > div {
+			width: 100%;
+		}
+
+		#contacto > div > div:first-of-type {
+			margin-bottom: 40px;
+		}
+
+	body > footer > div:first-of-type {
+		width: 85%;
+	}
+
+	#clases {
+		margin-top: 0px;
+	}
+
+		#clases > section {
+			width: 85%;
+		}
+
+		#clases > div > div {
+			width: 85%;
+		}
+
+	#articulo {
+		margin-top: 120px;
+	}
+
+		#articulo > div {
+			width: 85%;
+			display: block;
+		}
+
+			#articulo > div > article {
+				width        : 100%;
+				margin-bottom: 40px;
+			}
+
+			#articulo > div > aside {
+				width: 100%;
+			}
+}
+
+@media all and (orientation: landscape) and (max-width: 1030px) {
+	body > header > div {
+		width: 85%;
+	}
+
+		body > header > div > h1 {
+			font-size  : 2.5em;
+			padding-top: 0px;
+		}
+
+		body > header > div > sub {
+			font-size: 1.5em;
+		}
+
+	#quienes-somos > div {
+		width      : 85%;
+		align-items: center;
+	}
+
+		#quienes-somos > div > div {
+			width: 100%;
+		}
+
+		#quienes-somos > div > img {
+			display: none;
+		}
+
+		#quienes-somos > div > div > h1 {
+			font-size: 1.75em;
+		}
+
+	#productos > div {
+		width: 85%;
+	}
+
+		#productos > div > h1 {
+			font-size    : 1.5em;
+			margin-bottom: 40px;
+		}
+
+		#productos > div > img {
+			display: none;
+		}
+
+		#productos > div > ul {
+			width: 100%;
+		}
+
+			#productos > div > ul > li > a {
+				font-size: 0.85em;
+			}
+
+	#servicios > div {
+		width: 85%;
+	}
+
+		#servicios > div > div {
+			width: 100%;
+		}
+
+			#servicios > div > div:first-of-type > h1 {
+				width         : 100%;
+				position      : static;
+				margin-top    : 0px;
+				margin-left   : 0px;
+				white-space   : normal;
+				margin-bottom : 40px;
+				text-transform: none;
+				font-size     : 1.5em;
+			}
+
+			#servicios > div > div:first-of-type > img {
+				display: none;
+			}
+
+	#descanso-1 > div {
+		width: 85%;
+	}
+
+		#descanso-1 > div > h1 {
+			font-size: 1.5em;
+		}
+
+	main > div {
+		width: 85%;
+	}
+
+		main > div > h1 {
+			font-size: 1.5em;
+		}
+
+		main > div > div {
+			margin-top: 40px;
+			display   : block;
+		}
+
+			main > div > div > article {
+				width        : 100%;
+				margin-bottom: 40px;
+			}
+
+			main > div > div > article:last-of-type {
+				margin-bottom: 0px;
+			}
+
+	#faq > div {
+		width: 85%;
+	}
+
+		#faq > div > h1 {
+			font-size: 1.5em;
+		}
+
+	#contacto > div {
+		width  : 85%;
+		display: block;
+	}
+
+		#contacto > div > div {
+			width: 100%;
+		}
+
+		#contacto > div > div:first-of-type {
+			margin-bottom: 40px;
+		}
+
+			#contacto > div > div:first-of-type > h1 {
+				font-size: 1.5em;
+			}
+
+	body > footer > div:first-of-type {
+		width: 85%;
+	}
+
+	#articulo > div > article {
+		width        : 100%;
+		margin-bottom: 40px;
+	}
+
+	#articulo > div > aside {
+		width: 100%;
+	}
+}
+
+@media all and (orientation: portrait) and (max-width: 770px) {
+	body > header > div > h1 {
+		font-size  : 2.5em;
+		padding-top: 0px;
+	}
+
+	body > header > div > sub {
+		font-size: 1.5em;
+	}
+
+	#quienes-somos > div > div > h1 {
+		font-size: 1.75em;
+	}
+
+	#productos > div > h1 {
+		font-size    : 1.5em;
+		margin-bottom: 40px;
+	}
+
+	#servicios > div > div:first-of-type > h1 {
+		font-size: 1.5em;
+	}
+
+	#descanso-1 > div > h1 {
+		font-size: 1.5em;
+	}
+
+	main > div > h1 {
+		font-size: 1.5em;
+	}
+
+	#faq > div > h1 {
+		font-size: 1.5em;
+	}
+
+	#contacto > div > div:first-of-type > h1 {
+		font-size: 1.5em;
+	}
+
+	body > footer > div:first-of-type {
+		display: block;
+	}
+
+		body > footer > div:first-of-type > div {
+			width        : 100% !important;
+			display      : block;
+			margin-bottom: 40px;
+		}
+
+		body > footer > div:first-of-type > div:last-of-type {
+			margin-bottom: 0px;
+		}
+}
+
+@media all and (orientation: landscape) and (max-width: 740px) {
+	body > nav > div > a {
+		width: 50%;
+	}
+
+	#faq > div > div {
+		column-count: auto;
+		column-gap  : normal;
+	}
+
+	body > footer > div:first-of-type {
+		display: block;
+	}
+
+		body > footer > div:first-of-type > div {
+			width        : 100% !important;
+			display      : block;
+			margin-bottom: 40px;
+		}
+
+		body > footer > div:first-of-type > div:last-of-type {
+			margin-bottom: 0px;
+		}
+
+	#clases > header {
+		height: 75vh;
+	}
+
+		#clases > section > div {
+			column-count: auto;
+			column-gap  : normal;
+		}
+
+		#clases > div > div > div {
+			column-count: auto;
+			column-gap  : normal;
+		}
+}
+
+@media all and (orientation: portrait) and (max-width: 420px) {
+	body > nav > div > a {
+		width: 50%;
+	}
+
+	#productos > div > ul > li {
+		width     : 100%;
+		margin-top: 16px;
+	}
+
+	#productos > div > ul > li:last-of-type {
+		margin-top: 0px;
+	}
+
+	#servicios > div > div:last-of-type > div {
+		display: block;
+	}
+
+		#servicios > div > div:last-of-type > div > img {
+			margin       : auto;
+			margin-bottom: 12px;
+		}
+
+			#servicios > div > div:last-of-type > div > div > h4 {
+				text-align: center;
+			}
+
+	main > div > div > article > h1 {
+		text-align    : center;
+		text-transform: none;
+	}
+
+	#testimonios > div > div {
+		width: 100%;
+	}
+
+	#testimonios > div > div > p {
+		width      : 100%;
+		white-space: normal;
+		text-align : center;
+	}
+
+	#faq > div > div {
+		column-count: auto;
+		column-gap  : normal;
+	}
+
+	#contacto > img {
+		display: none;
+	}
+
+	body > footer > div:last-of-type {
+		font-size: 0.85em;
+	}
+
+	#clases > header {
+		height: 75vh;
+	}
+
+		#clases > section > div {
+			column-count: auto;
+			column-gap  : normal;
+		}
+
+		#clases > div > div > div {
+			column-count: auto;
+			column-gap  : normal;
+		}
+}
